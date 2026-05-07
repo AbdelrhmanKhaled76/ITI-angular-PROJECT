@@ -127,30 +127,6 @@ npm install
 
 ---
 
-## 🔐 Create Environment Variables
-
-Create a `.env` file inside the `Backend-API` folder.
-
-### 📄 Backend-API/.env
-
-```env
-# Server Configuration
-PORT=3000
-MONGO_URI=mongodb+srv://mohamed353essam_db_user:1234@cinema.eumoewy.mongodb.net/cinemaDB
-
-# JWT
-JWT_SECRET=your_super_secret_key_here
-JWT_EXPIRES_IN=100h
-
-# OpenAI
-OPENAI_API_KEY =  "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"
-
-# Stripe
-STRIPE_SECRET_KEY= sk_test_51TQNlT11TsqKK9QQCzWwyBTCgkPuecZreRczicRZr7wVqmbfXBcFRgJz5gOQqkU7DYYG6EIVxQzF2Zhp26AqhPaK00foUj3Vxl
-```
-
----
-
 ## ▶️ Run the Backend Server
 
 ### Development Mode
