@@ -36,7 +36,7 @@ The application allows users to browse movies, reserve seats, complete payments,
 
 ## 🤖 AI Chatbot Support
 
-* OpenAI integration for chatbot assistance
+* Integrated OpenAI-powered cinema assistant that provides real-time movie and booking assistance using a simple Retrieval-Augmented Generation (RAG) approach
 
 ## 📊 Admin Dashboard
 
