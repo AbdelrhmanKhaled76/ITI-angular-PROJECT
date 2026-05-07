@@ -28,6 +28,7 @@ export class MovieDetail {
   movie = signal<Movie | null>(null);
   showtimes = signal<ShowtimeListItem[]>([]);
   loadError = signal(false);
+  isLoading = signal(false);
   selectedShowtimeId = signal<string | null>(null);
   selectedDayKey = signal<string | null>(null);
 
@@ -87,6 +88,7 @@ export class MovieDetail {
 
       this.selectedShowtimeId.set(null);
       this.selectedDayKey.set(null);
+      this.isLoading.set(true);
 
       forkJoin({
         movie: this.movieService.getById(id),
@@ -94,6 +96,7 @@ export class MovieDetail {
       })
         .pipe(
           catchError(() => {
+            this.isLoading.set(false);
             this.loadError.set(true);
             this.movie.set(null);
             this.showtimes.set([]);
@@ -102,6 +105,7 @@ export class MovieDetail {
           }),
         )
         .subscribe((res) => {
+          this.isLoading.set(false);
           if (!res) return;
           this.loadError.set(false);
           this.movie.set(res.movie.data);

@@ -1,5 +1,43 @@
 <div class="movie-container">
-  @if (loadError()) {
+  @if (isLoading()) {
+    <div class="skeleton-loader">
+      <div class="skeleton skeleton-poster"></div>
+
+      <div class="skeleton-content">
+        <div class="skeleton skeleton-tag"></div>
+        <div class="skeleton skeleton-title"></div>
+        <div class="skeleton skeleton-genre"></div>
+        <div class="skeleton skeleton-duration"></div>
+      </div>
+
+      <div class="skeleton skeleton-description"></div>
+
+      <div class="skeleton-action">
+        <div class="skeleton skeleton-btn"></div>
+        <div class="skeleton-icons">
+          <div class="skeleton skeleton-icon"></div>
+          <div class="skeleton skeleton-icon"></div>
+        </div>
+      </div>
+
+      <div class="skeleton-showtime">
+        <div class="skeleton skeleton-section-title"></div>
+        <div class="skeleton-dates">
+          <div class="skeleton skeleton-date"></div>
+          <div class="skeleton skeleton-date"></div>
+          <div class="skeleton skeleton-date"></div>
+        </div>
+        <div class="skeleton skeleton-category"></div>
+        <div class="skeleton-times">
+          <div class="skeleton skeleton-time"></div>
+          <div class="skeleton skeleton-time"></div>
+          <div class="skeleton skeleton-time"></div>
+        </div>
+      </div>
+
+      <div class="skeleton skeleton-confirm-btn"></div>
+    </div>
+  } @else if (loadError()) {
     <p class="movie-status">Could not load movie.</p>
   } @else if (movie()) {
     <img [src]="posterSrc()" [alt]="movie()!.title" class="movie-poster" />
