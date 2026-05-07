@@ -23,6 +23,6 @@
 <div class="upcoming">
     @for (movie of upcomingMovies(); track movie._id) {
     <app-upcoming-card [poster]="movie.poster" [releaseDate]="(movie.releaseDate | date:'yyyy-MM-dd')??''"
-        [title]="movie.title" [description]="movie.description"></app-upcoming-card>
+        [title]="movie.title" [description]="movie.description.slice(0, 40) + '...'"></app-upcoming-card>
     }
 </div>
