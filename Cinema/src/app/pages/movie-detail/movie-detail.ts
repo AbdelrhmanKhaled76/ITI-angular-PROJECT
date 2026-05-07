@@ -20,34 +20,34 @@ export class MovieDetail {
   private  movieService = inject(MovieService);
   private  showtimeService = inject(ShowtimeService);
 
-   movieId = toSignal(
+  movieId = toSignal(
     this.route.paramMap.pipe(map((p) => p.get('movieId'))),
     { initialValue: null },
   );
 
-   movie = signal<Movie | null>(null);
-   showtimes = signal<ShowtimeListItem[]>([]);
-   loadError = signal(false);
-   selectedShowtimeId = signal<string | null>(null);
-   selectedDayKey = signal<string | null>(null);
+  movie = signal<Movie | null>(null);
+  showtimes = signal<ShowtimeListItem[]>([]);
+  loadError = signal(false);
+  selectedShowtimeId = signal<string | null>(null);
+  selectedDayKey = signal<string | null>(null);
 
-posterSrc = computed(() => this.movie()?.poster || '');
+  posterSrc = computed(() => this.movie()?.poster || '');
 
-   genreLabel = computed(() => this.movie()?.genre?.join(' / ') ?? '');
+  genreLabel = computed(() => this.movie()?.genre?.join(' / ') ?? '');
 
-   durationLabel = computed(() => {
+  durationLabel = computed(() => {
     const m = this.movie()?.duration;
     if (m == null) return '';
     const h = Math.floor(m / 60);
     const min = m % 60;
     return `${h}h ${min}m`;
   });
-  
-   statusTag = computed(() =>
+
+  statusTag = computed(() =>
     this.movie()?.isNowShowing ? 'NOW SHOWING' : 'COMING SOON',
   );
 
-   showDates = computed(() => {
+  showDates = computed(() => {
     const dates = new Map<string, Date>();
     for (const st of this.showtimes()) {
       const d = new Date(st.startTime);
@@ -57,7 +57,7 @@ posterSrc = computed(() => this.movie()?.poster || '');
     return Array.from(dates.values()).sort((a, b) => a.getTime() - b.getTime());
   });
 
-   timesForSelectedDay = computed(() => {
+  timesForSelectedDay = computed(() => {
     const key = this.selectedDayKey();
     if (!key) return [];
     return this.showtimes().filter(
@@ -65,7 +65,7 @@ posterSrc = computed(() => this.movie()?.poster || '');
     );
   });
 
-   confirmLabel = computed(() => {
+  confirmLabel = computed(() => {
     const sid = this.selectedShowtimeId();
     if (!sid) return 'Confirm Seats';
     const st = this.showtimes().find((s) => s._id === sid);
@@ -173,6 +173,14 @@ posterSrc = computed(() => this.movie()?.poster || '');
     const sid = this.selectedShowtimeId();
     if (mid && sid) {
       void this.router.navigate(['/seats', mid, sid]);
+    }
+  }
+
+  watchTrailer() {
+    const trailerUrl = this.movie()?.trailer;
+
+    if (trailerUrl) {
+      window.open(trailerUrl, '_blank');
     }
   }
 }
