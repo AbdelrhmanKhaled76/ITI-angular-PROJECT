@@ -36,7 +36,7 @@
           [options]="statusOptions" [isDropShadow]="true" />
       </div>
 
-      <app-form-input label="Description" placeholder="Write a short description..." 
+      <app-form-input label="Description" placeholder="Write a short description..."
         [control]="movieForm.controls.description" errorMsg="description field is required" [isTextarea]="true" [fullWidth]="true" />
 
       <div class="form-grid">
@@ -57,6 +57,8 @@
         <app-form-input label="Show Times" placeholder="Choose showtimes" iconUrl="/clock.svg"
           [control]="movieForm.controls.showTimes" errorMsg="show times are required" [isMultiSelect]="true"
           [options]="showTimesOptions" [isDropShadow]="true" />
+
+        <app-form-input label="Trailer URL" placeholder="https://..." [control]="movieForm.controls.trailer" />
       </div>
 
       <div class="form-actions">

@@ -12,5 +12,12 @@ export class FeaturedMovie {
   @Input() title!: string;
   @Input() description!: string;
   @Input() poster!: string;
+  @Input() trailer!: string;
   @Input() id!: string;
+
+  watchTrailer() {
+    if (this.trailer) {
+      window.open(this.trailer, '_blank');
+    }
+  }
 }

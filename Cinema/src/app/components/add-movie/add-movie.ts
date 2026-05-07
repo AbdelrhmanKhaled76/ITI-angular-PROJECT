@@ -35,6 +35,7 @@ export class AddMovie {
     rating: new FormControl('', Validators.required),
     language: new FormControl('', Validators.required),
     poster: new FormControl('', [Validators.required]),
+    trailer: new FormControl(''),
     releaseDate: new FormControl('', Validators.required),
     isNowShowing: new FormControl<'Showing' | 'Upcoming'>('Upcoming', Validators.required),
     showTimes: new FormControl<string[]>([], Validators.required),
@@ -82,6 +83,7 @@ export class AddMovie {
       rating: v.rating!,
       language: v.language!,
       poster: v.poster!,
+      trailer: v.trailer!,
       releaseDate: v.releaseDate!,
       isNowShowing: v.isNowShowing === 'Showing',
       showTimes: v.showTimes || [],
@@ -90,7 +92,7 @@ export class AddMovie {
     this.movieService.create(payload).subscribe({
       next: (res: any) => {
         const newMovieId = res.data?._id;
-        
+
         if (newMovieId && v.showTimes?.length && this.defaultHallId) {
           const showtimeRequests = v.showTimes.map((timeStr: string) => {
             const startTime = this.combineDateAndTime(v.releaseDate!, timeStr);
@@ -130,10 +132,10 @@ export class AddMovie {
     const date = new Date(dateStr);
     const [time, ampm] = timeStr.split(' ');
     let [hours, minutes] = time.split(':').map(Number);
-    
+
     if (ampm === 'PM' && hours < 12) hours += 12;
     if (ampm === 'AM' && hours === 12) hours = 0;
-    
+
     date.setHours(hours, minutes, 0, 0);
     return date;
   }

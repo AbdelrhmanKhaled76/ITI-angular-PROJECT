@@ -32,6 +32,7 @@ const addMovie = async (req, res) => {
       rating,
       language,
       poster,
+      trailer,
       releaseDate,
       isNowShowing,
     } = req.body;
@@ -49,6 +50,7 @@ const addMovie = async (req, res) => {
       rating,
       language,
       poster,
+      trailer,
       releaseDate,
       isNowShowing: isNowShowing || false,
     });

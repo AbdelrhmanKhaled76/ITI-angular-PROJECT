@@ -49,6 +49,9 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    trailer: {
+      type: String,
+    },
     releaseDate: {
       type: Date,
       required: true,

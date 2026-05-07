@@ -7,6 +7,7 @@ export interface Movie {
   rating: string;
   language: string;
   poster: string;
+  trailer?: string;
   releaseDate: string;
   isNowShowing: boolean;
   showTimes?: string[];

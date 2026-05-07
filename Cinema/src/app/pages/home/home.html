@@ -1,5 +1,6 @@
 <app-featured-movie [poster]="featuredMovie()?.poster??''" [title]="featuredMovie()?.title??''"
-    [description]="featuredMovie()?.description??''" [id]="featuredMovie()?._id??''"></app-featured-movie>
+    [description]="featuredMovie()?.description??''" [id]="featuredMovie()?._id??''"
+    [trailer]="featuredMovie()?.trailer??''"></app-featured-movie>
 <h1 class="now-showing-title">Now Showing</h1>
 <div class="now-showing">
     @for (movie of nowShowingMovies(); track movie._id) {
