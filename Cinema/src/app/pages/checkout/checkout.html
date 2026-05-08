@@ -1,4 +1,4 @@
-<div class="checkout-wrapper" [class.blurred]="isVisaModalOpen">
+<div class="checkout-wrapper" [class.blurred]="isVisaModalOpen || isProcessing">
   @if (seatIds.length > 0) {
   <!-- Main Content -->
   <main class="main-content">
@@ -144,4 +144,10 @@
       <button class="btn-ok" (click)="submitVisaPayment()">OK</button>
     </div>
   </div>
+</div>
+
+<!-- Processing Modal -->
+<div class="modal-overlay processing-overlay" *ngIf="isProcessing">
+  <div class="spinner"></div>
+  <p>Processing your payment...</p>
 </div>

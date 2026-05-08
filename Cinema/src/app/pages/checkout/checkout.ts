@@ -45,6 +45,7 @@ export class Checkout implements OnInit {
   // Payment State
   selectedPaymentMethod = 'card';
   isVisaModalOpen = false;
+  isProcessing = false;
 
   // Visa Form
   visaCardNumber = '';
@@ -134,6 +135,7 @@ export class Checkout implements OnInit {
   }
 
   processBookingAndPayment() {
+    this.isProcessing = true;
     // 1. Create Booking
     this.bookingService
       .createBooking({
@@ -145,6 +147,8 @@ export class Checkout implements OnInit {
         next: (bookingRes) => {
           const paymentId = bookingRes.paymentId;
           if (!paymentId) {
+            this.isProcessing = false;
+            this.cdr.detectChanges();
             Swal.fire('Error', 'Booking created but no payment ID returned', 'error');
             return;
           }
@@ -152,6 +156,8 @@ export class Checkout implements OnInit {
           // 2. Confirm Payment
           this.paymentService.confirmPayment({ paymentId }).subscribe({
             next: (paymentRes) => {
+              this.isProcessing = false;
+              this.cdr.detectChanges();
               Swal.fire({
                 icon: 'success',
                 title: 'Payment Successful',
@@ -162,11 +168,15 @@ export class Checkout implements OnInit {
               });
             },
             error: (err) => {
+              this.isProcessing = false;
+              this.cdr.detectChanges();
               Swal.fire('Payment Failed', err.error?.message || 'An error occurred', 'error');
             },
           });
         },
         error: (err) => {
+          this.isProcessing = false;
+          this.cdr.detectChanges();
           Swal.fire(
             'Booking Failed',
             err.error?.message || 'Failed to create booking. Seats might be taken.',
