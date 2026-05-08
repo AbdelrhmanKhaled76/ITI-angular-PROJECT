@@ -168,11 +168,11 @@
 
 
 .date-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 0.75rem;
-  justify-items: center;
   margin-bottom: 1.5rem;
+  justify-content: flex-start;
 }
 
 .date-card {
@@ -355,7 +355,7 @@
 
   .date-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 1.875rem;
   }
 

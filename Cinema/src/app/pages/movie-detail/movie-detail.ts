@@ -110,10 +110,12 @@ export class MovieDetail {
           this.loadError.set(false);
           this.movie.set(res.movie.data);
           const all = res.showtimes.data ?? [];
+          const now = new Date();
           const filtered = all.filter((st) => {
             const m = st.movie;
             const mid = typeof m === 'string' ? m : (m as Movie)?._id;
-            return mid === id;
+             const startTime = new Date(st.startTime);
+            return mid === id && startTime > now;
           });
           this.showtimes.set(filtered);
           if (filtered.length) {
