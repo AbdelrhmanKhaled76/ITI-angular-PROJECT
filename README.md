@@ -222,24 +222,22 @@ https://www.figma.com/design/AazrIpvdBFdxDwmcJO9fWo/cinema-design-system?node-id
 # 📸 Figma Web Design
 ## Landing Page
 <img width="4344" height="7278" alt="CinePremium - Landing Page" src="https://github.com/user-attachments/assets/ace18e76-fcb9-4656-930c-3a340fc9373b" />
-<br><br>
+
 ## Movie Details
 <img width="4320" height="7776" alt="Movie Details (1)" src="https://github.com/user-attachments/assets/892e13d7-ab41-425b-b44c-5bccd312f2d7" />
-<br><br>
+
 ## User Profile
 <img width="4320" height="7626" alt="My Dashboard (3)" src="https://github.com/user-attachments/assets/e53db8d7-6e32-458e-a8e1-ef90ff12b6da" />
 
 ---
 
 # 📸 Figma Mobile Design
- Design
+
 ## Choose Seats
 <img width="1206" height="6172" alt="Choose Seats" src="https://github.com/user-attachments/assets/c7a2bf3a-4440-4649-8237-9e948a1ac504" />
-<br><br>
+
 ## Movie Details
 <img width="1254" height="13188" alt="Browse Movies" src="https://github.com/user-attachments/assets/e23588e4-38dd-4399-a1fe-909a8504440d" />
-<br><br>
-
 
 ---
 
