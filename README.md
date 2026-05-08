@@ -4,7 +4,7 @@ A full-stack cinema reservation platform built with **Angular 21**, **Node.js**,
 The application allows users to browse movies, reserve seats, complete payments, and manage their accounts, while admins can manage the cinema system through a dedicated admin panel.
 
 ## 🎬 Check Project Video 
-[![Watch Demo](https://img.shields.io/badge/Watch%20Demo-Click%20Here-red?style=for-the-badge&logo=youtube)](https://drive.google.com/file/d/1AyVepWBjpaYZ6JQjLbcIZDq8ssuvAMAM/view?usp=sharing)
+[![Watch Demo](https://img.shields.io/badge/Watch%20Demo-Click%20Here-red?style=for-the-badge&logo=youtube)](https://drive.google.com/file/d/1pa-YI_D6s9m6ZHAf4Pb9NKuZhE1Vj10c/view?usp=sharing)
 
 ---
 
